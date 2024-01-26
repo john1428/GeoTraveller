@@ -34,7 +34,7 @@ function Form() {
   const [geocodingError, setGeocodingError] = useState("");
   const [startDate, setStartDate] = useState(new Date());
 
-  const { updateCity, isLoading } = useCities();
+  const { addCity, isLoading } = useCities();
 
   async function handleFormSubmit(e) {
     e.preventDefault();
@@ -48,7 +48,7 @@ function Form() {
       position: { lat, lng },
     };
     console.log(newCity);
-    await updateCity(newCity);
+    await addCity(newCity);
     navigate("/app/cities");
   }
 
