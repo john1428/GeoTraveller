@@ -18,10 +18,9 @@ function CountryList() {
     return <Spinner />;
   }
   if (countries === undefined) {
-    return <Message />; // or any other appropriate fallback
+    return <Message />;
   }
 
-  // Check if cities is an array
   if (!countries.length) {
     return <Message message="Add cities by clicking on the map" />;
   }

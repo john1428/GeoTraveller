@@ -40,7 +40,7 @@ function CitiesProvider({ children }) {
         return {
           ...state,
           isLoading: false,
-          cities: state.cities.filter((city) => city.id !== action.payload),
+          cities: state.cities.filter((city) => city._id !== action.payload),
         };
       case "rejected":
         return {
@@ -58,16 +58,17 @@ function CitiesProvider({ children }) {
     initialState
   );
 
-  const BASE_URL = "http://localhost:9000";
+  const BASE_URL = "http://localhost:4000/api";
 
   useEffect(function () {
     async function callApi() {
       try {
-        // setIsLoading(true);
         dispatch({ type: "loading" });
         const res = await fetch(`${BASE_URL}/cities`);
+
         const data = await res.json();
-        // setCities(data);
+        console.log("sidd inside data context", data);
+
         dispatch({ type: "cities/created", payload: data });
       } catch (e) {
         console.log("something went wrong");
@@ -79,12 +80,10 @@ function CitiesProvider({ children }) {
 
   async function getCity(id) {
     try {
-      // setIsLoading(true);
-      if (Number(id) == currentCity.id) return;
       dispatch({ type: "loading" });
       const res = await fetch(`${BASE_URL}/cities/${id}`);
       const data = await res.json();
-      // setCurrentCity(data);
+      console.log("sass inside getcity", data);
       dispatch({ type: "cities/getCity", payload: data });
     } catch (e) {
       console.log("something went wrong");
@@ -93,9 +92,9 @@ function CitiesProvider({ children }) {
 
   async function addCity(newCity) {
     try {
-      // setIsLoading(true);
       dispatch({ type: "loading" });
-      const res = await fetch(`${BASE_URL}/cities`, {
+      console.log("sidd req 2", newCity);
+      const res = await fetch(`${BASE_URL}/cities/add`, {
         method: "POST",
         body: JSON.stringify(newCity),
         headers: {
@@ -103,9 +102,7 @@ function CitiesProvider({ children }) {
         },
       });
       const data = await res.json();
-      console.log(data);
-
-      // setCities((cities) => [...cities, data]);
+      console.log("sidd data inside addCity", data);
       dispatch({ type: "cities/addCity", payload: data });
     } catch (e) {
       console.log("something went wrong");
@@ -114,13 +111,10 @@ function CitiesProvider({ children }) {
 
   async function deleteCity(id) {
     try {
-      // setIsLoading(true);
       dispatch({ type: "loading" });
       await fetch(`${BASE_URL}/cities/${id}`, {
         method: "DELETE",
       });
-
-      // setCities((cities) => cities.filter((city) => city.id !== id));
       dispatch({ type: "cities/deleteCity", payload: id });
     } catch (e) {
       console.log("something went wron,id not found");

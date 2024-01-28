@@ -23,7 +23,6 @@ function Map() {
     getPosition,
   } = useMyLocation();
   const [mapLat, mapLng] = useUrlPosition();
-  // const { cityName, emoji, date, id, position } = city;
 
   console.log(mapLat, mapLng);
 
@@ -65,8 +64,8 @@ function Map() {
         {cities.map((city) => {
           return (
             <Marker
-              position={[city.position.lat, city.position.lng]}
-              key={city.id}
+              position={[city.position?.lat, city.position?.lng]}
+              key={city._id}
             >
               <Popup>
                 <span>{city.emoji}</span>
@@ -93,7 +92,7 @@ function DetectClick() {
   useMapEvents({
     click: (e) => {
       console.log(e);
-      navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`);
+      navigate(`form?lat=${e.latlng?.lat}&lng=${e.latlng?.lng}`);
     },
   });
 }

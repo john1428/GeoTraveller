@@ -11,7 +11,6 @@ function ProtectedRoute({ children }) {
   });
 
   return isUserVerified ? children : null;
-  return <div></div>;
 }
 
 export default ProtectedRoute;

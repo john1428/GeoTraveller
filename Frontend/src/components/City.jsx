@@ -13,7 +13,6 @@ const formatDate = (date) =>
   }).format(new Date(date));
 
 function City() {
-  // TEMP DATA
   const { id } = useParams();
   const navigate = useNavigate();
   const { getCity, currentCity, isLoading } = useCities();
@@ -28,7 +27,7 @@ function City() {
   const { cityName, emoji, date, notes } = currentCity;
   if (isLoading) return <Spinner />;
 
-  console.log(id);
+  console.log("sidd current id", id);
   return (
     <div className={styles.city}>
       <div className={styles.row}>
