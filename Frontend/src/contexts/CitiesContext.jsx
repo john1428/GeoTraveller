@@ -58,7 +58,7 @@ function CitiesProvider({ children }) {
     initialState
   );
 
-  const BASE_URL = "http://localhost:4000/api";
+  const BASE_URL = process.env.BASE_URL;
 
   useEffect(function () {
     async function callApi() {
