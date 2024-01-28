@@ -27,7 +27,6 @@ function City() {
   const { cityName, emoji, date, notes } = currentCity;
   if (isLoading) return <Spinner />;
 
-  console.log("sidd current id", id);
   return (
     <div className={styles.city}>
       <div className={styles.row}>

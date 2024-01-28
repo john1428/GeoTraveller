@@ -1,5 +1,5 @@
 import { createContext, useEffect, useContext, useReducer } from "react";
-// import "dotenv/config";
+
 const CitiesContext = createContext();
 
 function CitiesProvider({ children }) {
@@ -59,6 +59,7 @@ function CitiesProvider({ children }) {
   );
 
   const BASE_URL = import.meta.env.VITE_BASE_URL;
+  console.log("sidd BASE_URL", BASE_URL);
 
   useEffect(function () {
     async function callApi() {
@@ -67,7 +68,6 @@ function CitiesProvider({ children }) {
         const res = await fetch(`${BASE_URL}/cities`);
 
         const data = await res.json();
-        console.log("sidd inside data context", data);
 
         dispatch({ type: "cities/created", payload: data });
       } catch (e) {
@@ -93,7 +93,6 @@ function CitiesProvider({ children }) {
   async function addCity(newCity) {
     try {
       dispatch({ type: "loading" });
-      console.log("sidd req 2", newCity);
       const res = await fetch(`${BASE_URL}/cities/add`, {
         method: "POST",
         body: JSON.stringify(newCity),
@@ -102,7 +101,6 @@ function CitiesProvider({ children }) {
         },
       });
       const data = await res.json();
-      console.log("sidd data inside addCity", data);
       dispatch({ type: "cities/addCity", payload: data });
     } catch (e) {
       console.log("something went wrong");

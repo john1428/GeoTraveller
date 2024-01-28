@@ -10,7 +10,6 @@ router.get("/", async (req, res) => {
 
 router.post("/add", async function (req, res) {
   const body = req.body;
-  console.log("sidd req", body);
 
   const user = await City.create({
     cityName: body.cityName,
