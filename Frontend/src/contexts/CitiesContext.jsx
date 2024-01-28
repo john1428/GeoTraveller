@@ -1,5 +1,5 @@
 import { createContext, useEffect, useContext, useReducer } from "react";
-
+// import "dotenv/config";
 const CitiesContext = createContext();
 
 function CitiesProvider({ children }) {
@@ -58,7 +58,7 @@ function CitiesProvider({ children }) {
     initialState
   );
 
-  const BASE_URL = process.env.BASE_URL;
+  const BASE_URL = import.meta.env.VITE_BASE_URL;
 
   useEffect(function () {
     async function callApi() {
