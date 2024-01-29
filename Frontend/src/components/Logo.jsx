@@ -3,7 +3,11 @@ import { Link } from "react-router-dom";
 function Logo() {
   return (
     <Link to="/">
-      <img src="../../icon.png" alt="WorldWise logo" className={styles.logo} />
+      <img
+        src="../../geo7.png"
+        alt="GeoTraveller logo"
+        className={styles.logo}
+      />
     </Link>
   );
 }

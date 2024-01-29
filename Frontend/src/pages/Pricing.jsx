@@ -9,12 +9,13 @@ export default function Product() {
           <h2>
             Simple pricing.
             <br />
-            Just $9/month.
+            Just &#8377; 199/month.
           </h2>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae vel
-            labore mollitia iusto. Recusandae quos provident, laboriosam fugit
-            voluptatem iste.
+            Your Adventure and memories tracker for your trip down the memory
+            lane.
+            <br />
+            Subscribe now for enjoying all the current and upcoming features.
           </p>
         </div>
         <img src="img-2.jpg" alt="overview of a large city with skyscrapers" />

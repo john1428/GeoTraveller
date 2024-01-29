@@ -5,8 +5,8 @@ import styles from "./Login.module.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 export default function Login() {
-  const [email, setEmail] = useState("jack@example.com");
-  const [password, setPassword] = useState("qwerty");
+  const [email, setEmail] = useState("sidharth@example.com");
+  const [password, setPassword] = useState("reactsecret");
   const { login, isUserVerified } = useAuth();
 
   const navigate = useNavigate();
